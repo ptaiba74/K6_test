@@ -3,8 +3,8 @@ import http from 'k6/http'
 
 export const options = {
   thresholds: {
-    'http_req_duration{url:https://www.w3schools.com/xml/tempconvert.asmx}': ['p(95)>1000'],
-    'http_reqs{url:https://www.w3schools.com/xml/tempconvert.asmx}': ['count<5'],
+    http_req_duration: ['p(95)>1000'],
+    http_req_failed: ['rate<0.05'],
   },
   scenarios: {
     Scenario_1: {
